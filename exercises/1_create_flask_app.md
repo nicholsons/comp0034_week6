@@ -83,6 +83,9 @@ You should now have something like this:
     README.md
     setup.py
 ```
+
+You will need to copy in the `dash_app` directory and sub-directories and the `data` directory from the [week 5 GitHub repository](https://github.com/nicholsons/comp0034_week5) into your Flask app.
+
 We will add further files to this structure by the end of this week's activities.
 
 See [Flask structure recommendations](https://flask.palletsprojects.com/en/1.1.x/patterns/packages/) for more guidance.
