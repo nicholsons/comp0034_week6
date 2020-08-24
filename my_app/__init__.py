@@ -24,4 +24,8 @@ def create_app(config_classname):
     from my_app.community.community import community_bp
     app.register_blueprint(community_bp)
 
+    with app.app_context():
+        from dash_app.dash import init_dashboard
+        app = init_dashboard(app)
+
     return app

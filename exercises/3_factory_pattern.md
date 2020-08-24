@@ -95,3 +95,44 @@ Create and initialise the following by placing the code into the correct place i
 - [Flask-WTF CSRF Protection](https://flask-wtf.readthedocs.io/en/stable/csrf.html#setup)
 
 Stop and restart the Flask app. You won't see any visual changes but the code should still run and allow you to access [http://127.0.0.1:5000/](http://127.0.0.1:5000/). 
+
+### Initialise your Dash app
+You can incorporate your dash app usinge the same approach i.e. by adding the following into the `create_app` function:
+
+```python
+    with app.app_context():
+        # Import Dash application
+        from dash_app.dash import init_dashboard
+        app = init_dashboard(app)
+```
+
+First however we need to modify the way in which the Dash app is created. We need to wrap the Dash app creation and app.layout into an `init_dashboard` function, and wrap the callbacks into an ``init_callbacks` function.
+
+```python
+def init_dashboard(server):
+    app = dash.Dash(__name__)
+    app.layout = html.Div([
+        # ... Layout stuff
+    ])
+
+    # Initialize callbacks after our app is loaded
+    # Pass dash_app as a parameter
+    init_callbacks(dash_app)
+
+    return dash_app.server
+
+def init_callbacks(dash_app):
+    @app.callback(
+    # Callback input/output
+    ....
+    )
+    def update_graph(rows):
+        # Callback logic
+        ...
+```
+
+You can read more about this approach to using [Dash with Flask here](https://hackersandslackers.com/plotly-dash-with-flask/).
+
+If you look at `dash_app/dash.py` you will see that the code has been amended for you.
+
+Stop and restart the Flask app and then navigate to http://127.0.0.1:5000/dashapp/ and you should see the covid dashboard created in week 4.
