@@ -1,39 +1,30 @@
 """Flask config class."""
-from os.path import dirname, abspath, join
+import pathlib
 
 
 class Config(object):
     """Set Flask base configuration"""
-    CSRF_ENABLED = True
-    # Secret key was randomly created using a Python console and enter 'import secrets' and then 'secrets.token_urlsafe(16)'
     SECRET_KEY = 'dfdQbTOExternjy5xmCNaA'
-
-    # General Config
-    DEBUG = False
-    TESTING = False
-
-    # Forms config
-    # Generated using the same method as the SECRET_KEY
-    WTF_CSRF_SECRET_KEY = 'f7Z-JN0ftel5Sp_TywHuxA'
-
-    # Database config
-    CWD = dirname(abspath(__file__))
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + join(CWD, 'cscourses.sqlite')
+    DATA_PATH = pathlib.Path(__file__).parent.joinpath("data")  # This is a constant and not a Flask env variable
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATA_PATH.join('example.sqlite')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProdConfig(Config):
-    # The following are fictitious details for a MySQL server database! Included to illustrate the syntax.
-    DB_SERVER = '192.168.19.32'
-    SQLALCHEMY_DATABASE_URI = 'mysql://user@{}/foo'.format(DB_SERVER)
+    ENV = 'production' # Warning: this is not the recommended method but should suffice for our app
     DEBUG = False
     TESTING = False
 
 
 class TestConfig(Config):
+    ENV = 'testing'
+    DEBUG = False
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+    SQLALCHEMY_ECHO = True
 
 
 class DevConfig(Config):
+    ENV = 'development'
     DEBUG = True
+    TESTING = False
+    SQLALCHEMY_ECHO = True
