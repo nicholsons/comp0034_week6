@@ -1,5 +1,12 @@
+pandoc -t html --css mystyles.css input.md -o output.pdf
+
+pandoc -t html5 --css githubmarkdown.css --metadata title="Create Flask app" -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" 1_create_flask_app.md -f gfm -o 1_create_flask_app.pdf
+
+pandoc -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" 3_factory_pattern.md -f gfm -o 3_factory_pattern.pdf
 pandoc -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" 2_configure_flask_app.md -f gfm -o 2_configure_flask_app.pdf
 pandoc -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" 1_create_flask_app.md -f gfm -o 1_create_flask_app.pdf
 
 pandoc -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" 2_configure_flask_app.md -f gfm -o 2_configure_flask_app.docx
 pandoc -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" 1_create_flask_app.md -f gfm -o 1_create_flask_app.docx
+
+

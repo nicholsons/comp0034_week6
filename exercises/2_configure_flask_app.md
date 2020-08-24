@@ -143,8 +143,8 @@ Example of syntax for these three scenarios:
 # A SQLite database in the 'data' directory of the project
 import pathlib
 
-DATA_PATH = pathlib.Path(__file__).parent.joinpath("data")
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATA_PATH.join('mydatabase.sqlite')
+DATA_PATH = str(pathlib.Path(__file__).parent.joinpath("data"))
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATA_PATH + 'mydatabase.sqlite'
 
 # An in memory SQLite database
 SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'

@@ -5,8 +5,8 @@ import pathlib
 class Config(object):
     """Set Flask base configuration"""
     SECRET_KEY = 'dfdQbTOExternjy5xmCNaA'
-    DATA_PATH = pathlib.Path(__file__).parent.joinpath("data")  # This is a constant and not a Flask env variable
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATA_PATH.join('example.sqlite')
+    DATA_PATH = str(pathlib.Path(__file__).parent.joinpath("data"))  # Creates the string of a path object
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + DATA_PATH + 'example.sqlite'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
