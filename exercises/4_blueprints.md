@@ -86,3 +86,6 @@ You now have a route called index() in my_app and in the community module. This 
 Stop and restart the app and then navigate to: http://127.0.0.1:5000/community/
 
 You should see a page displaying `This is the community section of the web app`.
+
+## Repeat the steps to create a blueprint for the main site
+Create a blueprint for the main site and move the current index route out of app.py and into this.
