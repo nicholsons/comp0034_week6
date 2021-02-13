@@ -1,4 +1,4 @@
-# COMP0034 Week 5
+# COMP0034 Week 6
 
 This repository contains the start code for week5 and the exercises for the following:
 
