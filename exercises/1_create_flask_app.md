@@ -59,6 +59,7 @@ are updated. In PyCharm you can use Refactor | Move (though dragging to another 
 default).
 
 ## [OPTIONAL] Create setup.py and MANIFEST.in
+
 You do not need to create the following, this is only for those who wish to create a distributable package.
 
 Read [Making the project installable](https://flask.palletsprojects.com/en/1.1.x/tutorial/install/) and then create
@@ -118,6 +119,7 @@ You should now have something like this:
 ```
 
 If you are not using PyCharm Professional then you will need to create app.py with the following code:
+
 ```python
 from flask import Flask
 
@@ -130,7 +132,7 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 ```
 
 Run the Flask app and check that it launches.

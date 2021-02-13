@@ -45,6 +45,7 @@ class RecyclingBarChart:
     """ Creates the recycling bar chart to be used in the dashboard
     TODO: format the chart, add titles etc
     """
+
     def __init__(self, data):
         self.data = data
 
